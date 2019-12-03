@@ -1,0 +1,56 @@
+/graphql 을 활용해 해결가능한 두가지 문제/
+1.over-fetching, 2.under-fetching
+
+1./user/ GET (불필요한 정보들을 가져오게됨)
+
+2. (예를들어 인스타에서)/feed/notification/user/(기본적으로 깔려있는 요청 때문에 비효율) 
+
+
+graphql 이용
+
+Query(datebase에서 내가 원하는 데이터를 요청하고 graphql언어로 내가 원하는 정보를 요구할 수 있다.)
+
+query{
+    feed{
+        commets
+        likeNumber
+    }
+    notification{
+        isread
+    }
+    user{
+        username    
+        profilepic
+    }
+
+}
+
+위와 같이 backend에 요구하면
+아래와 같이 javascript로 만들어진 object를 받게 된다.
+
+{
+    feed[
+        {
+            commets:1,
+            likeNumber:23
+        }
+    ]
+    notification:[
+        {
+            isread : tue
+        },
+        {
+            isread:false
+        }
+    ]
+    user:[
+        {
+            username:"joon"
+            profilepic:"https"
+        }
+    ]
+}
+
+
+이제 서버를 만들어 보자
+yarn global add nodemon(main 파일을 주시해서 변화가 있으면 재시작한다.)
