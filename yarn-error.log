@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
+  C:\Program Files\nodejs\node.exe C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add babel-cli babel-present-env babel-present-stage-3 --dev
 
 PATH: 
   C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Samsung\AllShare Framework DMS\1.3.20\;C:\Program Files\Samsung\AllShare Framework DMS\1.3.20\64bit\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\조철희\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\조철희\AppData\Local\Programs\Python\Python37-32\;C:\Program Files\JetBrains\PyCharm Community Edition 2019.1.1\bin;;C:\Users\조철희\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\조철희\AppData\Roaming\npm
@@ -14,12 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: C:\Users\조철희\Documents\graphql\package.json: Unexpected string in JSON at position 267
-      at JSON.parse (<anonymous>)
-      at C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:304:30)
-      at C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:315:13
+  Error: https://registry.yarnpkg.com/babel-present-env: Not found
+      at Request.params.callback [as _callback] (C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66938:18)
+      at Request.self.callback (C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140622:22)
+      at Request.emit (events.js:209:13)
+      at Request.<anonymous> (C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141594:10)
+      at Request.emit (events.js:209:13)
+      at IncomingMessage.<anonymous> (C:\Users\조철희\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141516:12)
+      at Object.onceWrapper (events.js:298:28)
+      at IncomingMessage.emit (events.js:214:15)
+      at endReadableNT (_stream_readable.js:1178:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -32,9 +37,12 @@ npm manifest:
     "license": "MIT",
     "dependencies": {
       "graphql-yoga": "^1.18.3"
-    }
+    },
     "scripts": {
-      "start": "nodemon"
+      "start": "nodemon --exec babel-node index.js"
+    },
+    "devDependencies": {
+      "babel-node": "^0.0.1-security"
     }
   }
 
@@ -228,6 +236,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
     integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
+  
+  babel-node@^0.0.1-security:
+    version "0.0.1-security"
+    resolved "https://registry.yarnpkg.com/babel-node/-/babel-node-0.0.1-security.tgz#cbff6d9e7a2acb4065c1839c234d5c57091d7217"
+    integrity sha512-zF3D9H2FA2xrP+B/X462G+38aHpmR+33jBF7NowfPuV4CiPEzAR1Typ1RC+qPfe0vCeWeV0FLG2pfVGb0vIfeg==
   
   backo2@^1.0.2:
     version "1.0.2"
