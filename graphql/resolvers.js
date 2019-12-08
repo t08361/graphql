@@ -1,13 +1,8 @@
-const joyongjun = {
-    name: "joyongjun",
-    age: 22,
-    gender: "male"
-}
+import { getMovies } from "./db";
 
 const resolvers = {
     Query: {
-        person: () => joyongjun
+        movies: () => getMovies()
     }
-}; 
-
+};
 export default resolvers;
